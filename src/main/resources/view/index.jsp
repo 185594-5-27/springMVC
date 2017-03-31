@@ -1,16 +1,15 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: Administrator
-  Date: 2017-03-31
-  Time: 17:17
-  To change this template use File | Settings | File Templates.
---%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <html>
 <head>
     <title></title>
 </head>
 <body>
-
+welcome to springMVC word!
+<form method="post" action="/hello/ctrl/userLogin.do">
+    <input type="text" name="userName" >
+    <input type="submit" value="确定">
+    info1212121  ---- ${entity.userName}
+</form>
 </body>
 </html>
