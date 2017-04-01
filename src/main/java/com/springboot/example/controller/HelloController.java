@@ -27,4 +27,9 @@ public class HelloController {
         return new ModelAndView("index","entity",user);
     }
 
+    @RequestMapping("/loginOut.do")
+    public String loginOut() throws Exception {
+        throw new Exception("run exception!");
+    }
+
 }
