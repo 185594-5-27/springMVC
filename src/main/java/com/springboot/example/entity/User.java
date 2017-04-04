@@ -6,6 +6,14 @@ package com.springboot.example.entity;
  */
 public class User {
 
+    public User() {
+        super();
+    }
+
+    public User(String userName) {
+        this.userName = userName;
+    }
+
 
     public void setId(Integer id) {
         this.id = id;

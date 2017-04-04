@@ -4,6 +4,8 @@ import com.springboot.example.base.filter.ExampleFilter;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.web.multipart.MultipartResolver;
+import org.springframework.web.multipart.commons.CommonsMultipartResolver;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
@@ -19,6 +21,11 @@ import org.springframework.web.servlet.view.JstlView;
 @ComponentScan("com.springboot.example")
 public class MyMvcConfig extends WebMvcConfigurerAdapter {
 
+    /**
+     * 功能描述：springMVC初始化配置信息
+     *
+     * @return
+     */
     @Bean
     public InternalResourceViewResolver viewResolver() {
         InternalResourceViewResolver viewResolver = new InternalResourceViewResolver();
@@ -28,9 +35,26 @@ public class MyMvcConfig extends WebMvcConfigurerAdapter {
         return viewResolver;
     }
 
+    /**
+     * 功能描述：配置过滤器
+     *
+     * @return
+     */
     @Bean
     public ExampleFilter exampleFilter() {
         return new ExampleFilter();
+    }
+
+    /**
+     * 功能描述：配置附件上传的配置
+     *
+     * @return
+     */
+    @Bean
+    public MultipartResolver multipartResolver() {
+        CommonsMultipartResolver commonsMultipartResolver = new CommonsMultipartResolver();
+        commonsMultipartResolver.setMaxUploadSize(10000000);
+        return commonsMultipartResolver;
     }
 
     @Override
